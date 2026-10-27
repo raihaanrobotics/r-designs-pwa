@@ -1,5 +1,7 @@
 {
   "routes": [
+    { "src": "/manifest.json", "dest": "/manifest.json" },
+    { "src": "/icon-512.png", "dest": "/icon-512.png" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
