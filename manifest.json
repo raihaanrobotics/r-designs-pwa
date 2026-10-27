@@ -3,51 +3,32 @@
   "description": "3D Printing",
   "dir": "ltr",
   "display": "standalone",
-  "name": "RDESIGNS",
+  "name": "R DESIGNS",
   "orientation": "portrait",
   "scope": "/",
   "short_name": "RDESIGNS",
-  "start_url": "https://neonlabs.my.canva.site/3d-printing",
+  "start_url": "/",
   "theme_color": "#000000",
   "icons": [
     {
       "src": "https://neonlabs.my.canva.site/_assets/images/e53c4bd8da5e491d9ab09e7cf0daf874.png",
       "type": "image/png",
-      "sizes": "192x192",
-      "isSquare": true,
-      "isPng": true,
-      "isWebp": false,
-      "isJpg": false,
-      "width": 192,
-      "is512x512": false,
-      "is256x256": false,
-      "is192x192": true
+      "sizes": "512x512"
+    },
+    {
+      "src": "https://neonlabs.my.canva.site/_assets/images/e53c4bd8da5e491d9ab09e7cf0daf874.png",
+      "type": "image/png",
+      "sizes": "192x192"
     },
     {
       "src": "https://neonlabs.my.canva.site/_assets/images/2d0b56e7e51cf11036ad8734bdb67e2d.png",
       "type": "image/png",
-      "sizes": "32x32",
-      "isSquare": true,
-      "isPng": true,
-      "isWebp": false,
-      "isJpg": false,
-      "width": 32,
-      "is512x512": false,
-      "is256x256": false,
-      "is192x192": false
+      "sizes": "32x32"
     },
     {
       "src": "https://neonlabs.my.canva.site/_assets/images/725b756a69a7d4c235070e51acd85560.png",
       "type": "image/png",
-      "sizes": "180x180",
-      "isSquare": true,
-      "isPng": true,
-      "isWebp": false,
-      "isJpg": false,
-      "width": 180,
-      "is512x512": false,
-      "is256x256": false,
-      "is192x192": false
+      "sizes": "180x180"
     }
   ],
   "id": "r-designs",
