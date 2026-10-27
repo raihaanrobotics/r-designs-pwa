@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>R DESIGNS</title>
   
   <!-- PWA Manifest link for PWABuilder -->
@@ -10,23 +10,47 @@
   <meta name="theme-color" content="#2b2b2b">
 
   <style>
-    /* Hides the floating Canva watermark badge */
-    iframe[src*="canva"], div[class*="canva-badge"], a[href*="canva.com/design"] {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #fdfbf7;
+      font-family: sans-serif;
+    }
+
+    /* Full-screen iframe container for Canva */
+    #canva-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Blocking mask overlay at the bottom-right corner to cleanly cover any lingering floating badges */
+    .badge-blocker {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 160px;
+      height: 50px;
+      background-color: transparent; /* Change to match your page background color if needed (e.g. #fdfbf7) */
+      z-index: 9999;
+      pointer-events: none;
     }
   </style>
 </head>
-<body style="background-color: #fdfbf7; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif;">
-  <div style="text-align: center;">
-    <p style="color: #666; margin-bottom: 20px;">Loading R DESIGNS...</p>
-    <a href="https://neonlabs.my.canva.site/3d-printing" id="launch-link" style="color: #000; text-decoration: underline;">Click here if not redirected automatically</a>
-  </div>
+<body>
+
+  <!-- Embedded Canva Site -->
+  <iframe id="canva-frame" src="https://neonlabs.my.canva.site/3d-printing" title="R DESIGNS"></iframe>
+  
+  <!-- Corner Shield to hide floating elements -->
+  <div class="badge-blocker"></div>
 
   <script>
-    // Register Service Worker first
+    // Register Service Worker for PWA functionality
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/pwabuilder-sw.js')
@@ -34,11 +58,6 @@
           .catch(err => console.log('SW registration failed:', err));
       });
     }
-
-    // Redirect human visitors to Canva after a brief moment so crawlers can read the header first
-    setTimeout(() => {
-      window.location.replace("https://neonlabs.my.canva.site/3d-printing");
-    }, 800);
   </script>
 </body>
 </html>
