@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>R DESIGNS</title>
   
-  <!-- Link to your PWA manifest -->
+  <!-- PWA Manifest link for PWABuilder -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#2b2b2b">
-
-  <!-- Instant redirect to your Canva site while keeping PWA wrapper active -->
-  <meta http-equiv="refresh" content="0; url=https://neonlabs.my.canva.site/3d-printing">
 </head>
 <body style="background-color: #fdfbf7; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif;">
-  <p style="color: #666;">Loading R DESIGNS...</p>
+  <div style="text-align: center;">
+    <p style="color: #666; margin-bottom: 20px;">Loading R DESIGNS...</p>
+    <a href="https://neonlabs.my.canva.site/3d-printing" id="launch-link" style="color: #000; text-decoration: underline;">Click here if not redirected automatically</a>
+  </div>
 
-  <!-- Registers your Service Worker for PWABuilder -->
   <script>
+    // Register Service Worker first
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/pwabuilder-sw.js')
@@ -24,6 +24,11 @@
           .catch(err => console.log('SW registration failed:', err));
       });
     }
+
+    // Redirect human visitors to Canva after a brief moment so crawlers can read the header first
+    setTimeout(() => {
+      window.location.replace("https://neonlabs.my.canva.site/3d-printing");
+    }, 800);
   </script>
 </body>
 </html>
